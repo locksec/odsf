@@ -1,0 +1,6 @@
+odsf*.json
+.DS_Store
+node_modules/
+output/
+.claude
+CLAUDE.md

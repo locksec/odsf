@@ -1,0 +1,22 @@
+<div class="focus-area" data-area-id="{{areaId}}">
+  <div class="focus-area-header">
+    <h2 class="focus-area-title">
+      <span class="focus-area-id">{{areaId}}</span>
+      {{areaName}}
+    </h2>
+    <svg class="chevron-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </div>
+  <div class="focus-area-content">
+    <div class="focus-area-section">
+      <h3 class="section-title">Description</h3>
+      <p>{{areaDescription}}</p>
+    </div>
+    <div class="focus-area-section">
+      <h3 class="section-title">Business Rationale</h3>
+      <p>{{businessRationale}}</p>
+    </div>
+    {{subcategories}}
+  </div>
+</div>

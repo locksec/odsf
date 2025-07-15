@@ -1,0 +1,71 @@
+<!-- Main Content -->
+<main class="main-content">
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input"
+          placeholder="Search controls, subcategories, or focus areas...">
+        <button id="clear-search" class="hidden">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav">
+      <div id="breadcrumb"></div>
+    </nav>
+
+    <!-- Controls -->
+    <div class="controls-section">
+      <!-- Navigation Pills -->
+      <div class="nav-pills">
+        {{navPills}}
+      </div>
+      
+      <div class="button-controls">
+        <div class="filter-controls">
+          <button id="all-on" class="btn-secondary">All On</button>
+          <button id="all-off" class="btn-secondary">All Off</button>
+        </div>
+        <div class="expand-controls">
+          <button id="expand-all" class="btn-secondary">Expand All</button>
+          <button id="collapse-all" class="btn-secondary">Collapse All</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Focus Areas -->
+    <div class="focus-areas">
+      {{focusAreas}}
+    </div>
+</main>
+
+<!-- Quick Jump Modal -->
+<div id="quick-jump" class="quick-jump-modal">
+  <div class="quick-jump-content">
+    <div class="quick-jump-title">Quick Jump</div>
+    <div class="quick-jump-items"></div>
+    <div class="quick-jump-hint">Use ↑↓ arrows and Enter to select</div>
+  </div>
+</div>
+
+<!-- Keyboard Shortcuts Bar -->
+<div class="keyboard-shortcuts-bar">
+  <div class="shortcuts-title">Keyboard Shortcuts</div>
+  <div class="shortcut-item">
+    <kbd>Ctrl/Cmd + F</kbd> Search
+  </div>
+  <div class="shortcut-item">
+    <kbd>Ctrl/Cmd + K</kbd> Quick Jump
+  </div>
+  <div class="shortcut-item">
+    <kbd>Ctrl/Cmd + E</kbd> Toggle Expand
+  </div>
+  <div class="shortcut-item">
+    <kbd>ESC</kbd> Clear Search
+  </div>
+</div>

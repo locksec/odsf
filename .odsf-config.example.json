@@ -1,0 +1,11 @@
+{
+  "minify": {
+    "enabled": false,
+    "css": true,
+    "js": true,
+    "html": true
+  },
+  "watch": {
+    "debounce": 300
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSINT Defense & Security Framework</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/odsf-styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    {{header}}
+    {{stats}}
+    {{mainContent}}
+    {{footer}}
+  </div>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <svg class="sun-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+    </svg>
+    <svg class="moon-icon hidden" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+    </svg>
+  </button>
+
+  <!-- Author Modal -->
+  <div id="author-modal" class="author-modal">
+    <div class="author-modal-content">
+      <h2 class="author-modal-title">Author & Contributors</h2>
+      
+      <div class="author-section">
+        <h3>Primary Author</h3>
+        <p><strong>{{author}}</strong></p>
+        <p>Creator and maintainer of the OSINT Defense & Security Framework</p>
+        <p>Learn more at <a href="https://psysecure.com/about/" target="_blank" rel="noopener noreferrer">psysecure.com/about</a></p>
+      </div>
+      
+      <div class="author-section">
+        <h3>About the Framework</h3>
+        <p>The OSINT Defense & Security Framework (ODSF) is designed to help organizations protect against open-source intelligence gathering and minimize their digital footprint.</p>
+      </div>
+      
+      {{contributorsSection}}
+      
+      <div class="author-section">
+        <h3>Contributing</h3>
+        <p>Contributions and feedback are welcome. Please visit <a href="https://psysecure.com/contact/" target="_blank" rel="noopener noreferrer">our contact page</a> to get in touch.</p>
+      </div>
+      
+      <div class="author-hint">
+        Press ESC to close
+      </div>
+    </div>
+  </div>
+
+  <!-- License Modal -->
+  <div id="license-modal" class="license-modal">
+    <div class="license-modal-content">
+      <h2 class="license-modal-title">License Information</h2>
+      
+      <p class="license-intro">This framework is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>.</p>
+      
+      <div class="license-section">
+        <h3>Permitted Uses Include:</h3>
+        <ul>
+          <li>Organizations using this framework internally for their own security</li>
+          <li>Educational and research purposes</li>
+          <li>Non-profit organizations</li>
+        </ul>
+      </div>
+      
+      <div class="license-section">
+        <h3>Commercial Licensing Required For:</h3>
+        <ul>
+          <li>Incorporating this framework into products or services sold to others</li>
+          <li>Offering this framework as part of paid consulting services</li>
+          <li>Redistributing modified versions for commercial gain</li>
+        </ul>
+      </div>
+      
+      <div class="license-section">
+        <p>For commercial licensing inquiries, <a href="https://psysecure.com/contact/" target="_blank" rel="noopener noreferrer">contact us</a>.</p>
+      </div>
+      
+      <div class="license-section">
+        <p>View full framework details and documentation at <a href="https://psysecure.com/odsf/" target="_blank" rel="noopener noreferrer">psysecure.com/odsf</a>.</p>
+      </div>
+      
+      <div class="license-hint">
+        Press ESC to close
+      </div>
+    </div>
+  </div>
+
+  <script src="js/odsf-script.js"></script>
+</body>
+</html>

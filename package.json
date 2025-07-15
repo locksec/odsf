@@ -1,0 +1,16 @@
+{
+  "name": "odsf-build",
+  "version": "1.0.0",
+  "description": "Build tool for OSINT Defense & Security Framework",
+  "type": "module",
+  "scripts": {
+    "build": "node build-odsf.js",
+    "build:minify": "node build-odsf.js --minify",
+    "watch": "node build-odsf.js --watch",
+    "clean": "node -e \"import {rmSync} from 'fs'; rmSync('./output', {recursive: true, force: true}); console.log('✅ Output directory cleaned');\"",
+    "deploy": "bash deploy-output-only.sh"
+  },
+  "keywords": ["osint", "security", "framework"],
+  "author": "",
+  "license": "MIT"
+}
