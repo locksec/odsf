@@ -54,9 +54,8 @@ else
     git checkout --orphan gh-pages
     # Remove all files from git tracking
     git rm -rf . 2>/dev/null || true
-    # Clean the working directory
-    rm -rf * 2>/dev/null || true
-    rm -rf .* 2>/dev/null || true
+    # Clean the working directory (but preserve .git)
+    find . -mindepth 1 -name .git -prune -o -exec rm -rf {} + 2>/dev/null || true
 fi
 
 # Copy files from temp directory
