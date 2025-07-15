@@ -48,12 +48,16 @@ echo "🌐 Added CNAME file for domain: odsf.psysecure.com"
 echo "🔄 Switching to gh-pages branch..."
 if git show-ref --verify --quiet refs/heads/gh-pages; then
     git checkout gh-pages
+    # Remove all existing files
+    git rm -rf . 2>/dev/null || true
 else
     git checkout --orphan gh-pages
+    # Remove all files from git tracking
+    git rm -rf . 2>/dev/null || true
+    # Clean the working directory
+    rm -rf * 2>/dev/null || true
+    rm -rf .* 2>/dev/null || true
 fi
-
-# Remove all existing files
-git rm -rf . 2>/dev/null || true
 
 # Copy files from temp directory
 cp -r "$TEMP_DIR"/* .
