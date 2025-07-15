@@ -20,6 +20,9 @@ if ! ls odsf-framework-v*.json 1> /dev/null 2>&1; then
     exit 1
 fi
 
+# Save the current directory
+PROJECT_DIR=$(pwd)
+
 # Build the project locally
 echo "🔨 Building ODSF locally..."
 npm run build
@@ -30,58 +33,41 @@ if [ ! -d "output" ]; then
     exit 1
 fi
 
-# Store current branch
-CURRENT_BRANCH=$(git branch --show-current)
+# Create a completely separate directory for deployment
+DEPLOY_DIR=$(mktemp -d)
+echo "📁 Creating deployment directory: $DEPLOY_DIR"
 
-# Create temporary directory
-TEMP_DIR=$(mktemp -d)
-echo "📁 Using temporary directory: $TEMP_DIR"
+# Initialize a new git repo in the deployment directory
+cd "$DEPLOY_DIR"
+git init
+git checkout -b gh-pages
 
-# Copy output files to temp directory
-cp -r output/* "$TEMP_DIR/"
+# Copy output files
+cp -r "$PROJECT_DIR/output/"* .
 
 # Create CNAME file
-echo "odsf.psysecure.com" > "$TEMP_DIR/CNAME"
+echo "odsf.psysecure.com" > CNAME
 echo "🌐 Added CNAME file for domain: odsf.psysecure.com"
-
-# Switch to gh-pages branch
-echo "🔄 Switching to gh-pages branch..."
-if git show-ref --verify --quiet refs/heads/gh-pages; then
-    git checkout gh-pages
-    # Remove all existing files
-    git rm -rf . 2>/dev/null || true
-else
-    git checkout --orphan gh-pages
-    # Remove all files from git tracking
-    git rm -rf . 2>/dev/null || true
-    # Clean the working directory (but preserve .git)
-    find . -mindepth 1 -name .git -prune -o -exec rm -rf {} + 2>/dev/null || true
-fi
-
-# Copy files from temp directory
-cp -r "$TEMP_DIR"/* .
 
 # Add all files
 git add -A
 
 # Commit changes
 echo "💾 Committing changes..."
-git commit -m "Deploy ODSF to GitHub Pages - $(date '+%Y-%m-%d %H:%M:%S')" || {
-    echo "⚠️  No changes to commit"
-    git checkout "$CURRENT_BRANCH"
-    rm -rf "$TEMP_DIR"
-    exit 0
-}
+git commit -m "Deploy ODSF to GitHub Pages - $(date '+%Y-%m-%d %H:%M:%S')"
+
+# Add remote
+git remote add origin git@github.com:locksec/odsf.git
 
 # Push to remote
 echo "📤 Pushing to GitHub..."
 git push origin gh-pages --force
 
-# Switch back to original branch
-git checkout "$CURRENT_BRANCH"
+# Go back to project directory
+cd "$PROJECT_DIR"
 
 # Clean up
-rm -rf "$TEMP_DIR"
+rm -rf "$DEPLOY_DIR"
 
 echo "✅ Deployment complete!"
 echo ""
