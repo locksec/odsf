@@ -214,6 +214,7 @@ const generateHTML = (data) => {
     frameworkName: data.framework_name.toUpperCase(),
     description: data.description,
     frameworkVersion: data.framework_version,
+    frameworkVersionDesc: data.framework_version_desc ? ` - ${data.framework_version_desc}` : '',
     author: data.author || 'Unknown Author'
   });
   
@@ -252,7 +253,7 @@ const generateHTML = (data) => {
         <ul>
           ${contributorsList.map(contributor => `<li>${escapeHtml(contributor)}</li>`).join('\n          ')}
         </ul>
-        <p>Thank you to all contributors who have helped improve this framework.</p>
+        <p class="contributor-thanks">Thank you to all contributors who have helped improve this framework.</p>
       </div>`;
     }
   }

@@ -144,6 +144,7 @@ The `odsf-framework-v*.json` file should contain:
 {
   "framework_name": "string",
   "framework_version": "string",
+  "framework_version_desc": "string", // Optional: version description
   "author": "string",
   "contributors": "string", // Optional: comma-separated list or array
   "description": "string",
