@@ -335,7 +335,7 @@ const build = () => {
     }
     
     try {
-      const htmlPath = join(outputDir, 'odsf.html');
+      const htmlPath = join(outputDir, 'index.html');
       writeFileSync(htmlPath, html, 'utf8');
     } catch (error) {
       throw new Error(`Failed to write HTML file: ${error.message}`);
@@ -420,7 +420,7 @@ const build = () => {
     console.log('✅ Build complete!');
     console.log(`📁 Output directory: ${outputDir}`);
     console.log(`📄 Generated files:`);
-    console.log(`   - odsf.html`);
+    console.log(`   - index.html`);
     console.log(`   - css/odsf-styles.css`);
     console.log(`   - js/odsf-script.js`);
     console.log(`📊 Stats:`);

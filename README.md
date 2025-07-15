@@ -16,7 +16,7 @@ node build-odsf.js
 This command:
 - Automatically finds and reads the latest framework JSON file (e.g., `odsf-framework-v0.1.2.json`)
 - Creates an `output/` directory with all generated files
-- Generates a static HTML file at `output/odsf.html`
+- Generates a static HTML file at `output/index.html`
 - Generates CSS file at `output/css/odsf-styles.css`
 - Copies JavaScript file to `output/js/odsf-script.js`
 - Copies all favicon files (favicon.ico, PNG icons, SVG, web manifest)
@@ -60,7 +60,7 @@ Removes the entire output directory and its contents.
 1. **Input**: Latest `odsf-framework-v*.json` file - Automatically detected based on version number
 2. **Process**: `build-odsf.js` - Transforms JSON data into HTML using templates and external CSS/JavaScript
 3. **Output** (all in `output/` directory): 
-   - `output/odsf.html` - Main HTML page with custom CSS
+   - `output/index.html` - Main HTML page with custom CSS
    - `output/css/odsf-styles.css` - Copied CSS styles with dark/light theme support
    - `output/js/odsf-script.js` - Copied JavaScript functionality
 
@@ -220,7 +220,7 @@ The build tool supports configuration via `.odsf-config.json` file in the projec
   - `.odsf-config.json` - Build configuration (minification enabled by default)
   - `.odsf-config.example.json` - Example configuration file
 - **Output Files**: The build generates all files in the `output/` directory:
-  - `output/odsf.html` - Main HTML page (optionally minified)
+  - `output/index.html` - Main HTML page (optionally minified)
   - `output/css/odsf-styles.css` - CSS styles (optionally minified)
   - `output/js/odsf-script.js` - JavaScript functionality (optionally minified)
   - All files in the output directory form a self-contained website
