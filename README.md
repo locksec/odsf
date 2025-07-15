@@ -117,6 +117,7 @@ Removes the entire output directory and its contents.
   - Arrow keys: Navigate in quick jump modal
 - All focus areas enabled by default
 - Focus areas start collapsed by default
+- Statistics counters animate from 0 to final value on page load
 
 **src/styles/main.css** - Custom styles including:
 - Dark theme (default) with light theme support
@@ -126,16 +127,17 @@ Removes the entire output directory and its contents.
 - Focus area tile buttons with grid layout
 - Focus area expansion animations with rotating chevrons
 - Search highlighting without padding
+- Statistics section with glassmorphism effect and animated counters
 - Quick jump modal with glassmorphism effect
 - Keyboard shortcuts bar with glassmorphism effect (bottom right)
-- Header buttons: Author (opens modal), About (external link), License (opens modal)
+- Header buttons: Contributors (opens modal), About (external link), License (opens modal)
 - Version badge on separate line with semi-transparent cyan styling
 - Light mode uses dark gray text instead of black
 - Theme toggle button (top right)
 - Print-ready styles that expand all sections
 - Footer with copyright notice and license button
 - License modal with detailed commercial/non-commercial terms
-- Author modal showing primary author and contributors (dynamically loaded from JSON)
+- Contributors modal showing primary author and contributors (dynamically loaded from JSON)
 
 ### Expected JSON Structure
 
@@ -232,7 +234,8 @@ The build tool supports configuration via `.odsf-config.json` file in the projec
 - **Theme Support**: Light/dark mode toggle with localStorage persistence
 - **Typography**: Jost font family with fluid typography using CSS clamp()
 - **Hero Section**: Large "MINIMIZE WHAT CAN BE KNOWN" tagline with badges
-- **Badges**: Version, Author, and About (links to psysecure.com/odsf)
+- **Badges**: Version, Contributors, and About (links to psysecure.com/odsf)
+- **Statistics**: Modern glassmorphism cards with icons and counting animations
 - **Content Width**: Maximum 1200px width for comfortable reading
 - **Search**: 
   - Real-time filtering with highlighting (no padding on highlights)
@@ -280,7 +283,7 @@ The ODSF build tool is fully functional with all core features implemented:
 - ✅ Dynamic author/contributors display from JSON data
 - ✅ Footer with copyright notice (CC BY-NC-SA 4.0)
 - ✅ License modal with commercial/non-commercial terms
-- ✅ Author modal with primary author and contributors
+- ✅ Contributors modal with primary author and contributors
 
 ## GitHub Pages Deployment (Secure Method)
 
