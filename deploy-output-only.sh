@@ -23,6 +23,10 @@ fi
 # Save the current directory
 PROJECT_DIR=$(pwd)
 
+# Clean output directory first
+echo "🧹 Cleaning output directory..."
+npm run clean
+
 # Build the project locally
 echo "🔨 Building ODSF locally..."
 npm run build
