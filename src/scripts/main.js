@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   attachEventListeners();
   initializeKeyboardShortcuts();
   renderQuickJump();
+  animateStatNumbers();
   
   // Set initial breadcrumb without applying filters
   updateBreadcrumb('', 0);
@@ -53,6 +54,33 @@ function updateThemeIcon() {
     sunIcon?.classList.add('hidden');
     moonIcon?.classList.remove('hidden');
   }
+}
+
+// Animate statistics numbers counting up
+function animateStatNumbers() {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  
+  statNumbers.forEach(element => {
+    const target = parseInt(element.getAttribute('data-count'), 10);
+    const duration = 1500; // 1.5 seconds
+    const increment = target / (duration / 16); // 60fps
+    let current = 0;
+    
+    const updateNumber = () => {
+      current += increment;
+      if (current < target) {
+        element.textContent = Math.floor(current);
+        requestAnimationFrame(updateNumber);
+      } else {
+        element.textContent = target;
+      }
+    };
+    
+    // Start animation with a slight delay for visual effect
+    setTimeout(() => {
+      requestAnimationFrame(updateNumber);
+    }, 100);
+  });
 }
 
 // Initialize DOM element references
