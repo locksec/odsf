@@ -189,7 +189,7 @@ const generateFocusArea = (area) => {
 // Generate navigation pills
 const generateNavPills = (focusAreas) => {
   return focusAreas.map(area => 
-    `<button class="nav-pill active" data-filter="${area.id}">${area.id}: ${area.name}</button>`
+    `<button class="nav-pill active" data-filter="${area.id}">${area.name}</button>`
   ).join('\n      ');
 };
 

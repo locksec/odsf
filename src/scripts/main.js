@@ -235,6 +235,17 @@ function attachEventListeners() {
       }
     });
   }
+  
+  // Modal close button clicks (event delegation)
+  document.addEventListener('click', (event) => {
+    const closeButton = event.target.closest('.modal-close');
+    if (closeButton) {
+      const modal = closeButton.closest('.author-modal, .license-modal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+  });
 }
 
 // Toggle theme
@@ -532,7 +543,7 @@ function updateBreadcrumb(searchTerm, matchCount) {
   if (!elements.breadcrumb) return;
   
   elements.breadcrumb.innerHTML = `
-    <span class="breadcrumb-item" onclick="resetFilters()">Focus Areas</span>
+    <span class="breadcrumb-item" onclick="resetFilters()" style="font-weight: 700;">Focus Areas</span>
     ${searchTerm ? `
       <span class="breadcrumb-separator">›</span>
       <span class="breadcrumb-item">Search: "${searchTerm}" (${matchCount} results)</span>
