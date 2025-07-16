@@ -265,7 +265,8 @@ const generateHTML = (data) => {
     mainContent,
     footer: footerTemplate,
     author: data.author || 'Unknown Author',
-    contributorsSection: contributorsHtml
+    contributorsSection: contributorsHtml,
+    about: data.about || 'The OSINT Defense & Security Framework (ODSF) is designed to help organizations protect against open-source intelligence gathering and minimize their digital footprint.'
   });
 };
 

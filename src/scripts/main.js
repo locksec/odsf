@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Copyright notice
   console.log('%cOSINT Defense & Security Framework', 'font-size: 24px; color: #40d0d5; font-weight: bold;');
-  console.log('%c© 2024 PsySecure. Licensed under CC BY-NC-SA 4.0 for non-commercial use.', 'font-size: 14px; color: #ea3232;');
+  console.log('%c© 2025 PsySecure. Licensed under CC BY-NC-SA 4.0 for non-commercial use.', 'font-size: 14px; color: #ea3232;');
   console.log('%cFor commercial use, please contact us at https://psysecure.com/contact/', 'font-size: 12px; color: #a0a0a0;');
   console.log('%cLearn more about the license: https://creativecommons.org/licenses/by-nc-sa/4.0/', 'font-size: 12px; color: #40d0d5;');
   
@@ -102,7 +102,9 @@ function initializeElements() {
     licenseBadge: document.getElementById('license-badge'),
     headerLicenseBadge: document.getElementById('header-license-badge'),
     authorModal: document.getElementById('author-modal'),
-    authorButton: document.getElementById('author-button')
+    authorButton: document.getElementById('author-button'),
+    aboutModal: document.getElementById('about-modal'),
+    aboutButton: document.getElementById('about-button')
   };
   
   // Debug: Check if critical elements are found
@@ -179,6 +181,13 @@ function attachEventListeners() {
     });
   }
   
+  // About button
+  if (elements.aboutButton) {
+    elements.aboutButton.addEventListener('click', () => {
+      elements.aboutModal.classList.add('active');
+    });
+  }
+  
   // License modal click outside to close
   if (elements.licenseModal) {
     elements.licenseModal.addEventListener('click', (event) => {
@@ -193,6 +202,15 @@ function attachEventListeners() {
     elements.authorModal.addEventListener('click', (event) => {
       if (event.target === elements.authorModal) {
         elements.authorModal.classList.remove('active');
+      }
+    });
+  }
+  
+  // About modal click outside to close
+  if (elements.aboutModal) {
+    elements.aboutModal.addEventListener('click', (event) => {
+      if (event.target === elements.aboutModal) {
+        elements.aboutModal.classList.remove('active');
       }
     });
   }
@@ -616,6 +634,8 @@ function initializeKeyboardShortcuts() {
     if (event.key === 'Escape') {
       if (elements.authorModal && elements.authorModal.classList.contains('active')) {
         elements.authorModal.classList.remove('active');
+      } else if (elements.aboutModal && elements.aboutModal.classList.contains('active')) {
+        elements.aboutModal.classList.remove('active');
       } else if (elements.licenseModal && elements.licenseModal.classList.contains('active')) {
         elements.licenseModal.classList.remove('active');
       } else if (elements.quickJump && elements.quickJump.classList.contains('active')) {
