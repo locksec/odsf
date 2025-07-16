@@ -99,7 +99,6 @@ function initializeElements() {
     quickJump: document.getElementById('quick-jump'),
     quickJumpItems: document.querySelector('.quick-jump-items'),
     licenseModal: document.getElementById('license-modal'),
-    licenseBadge: document.getElementById('license-badge'),
     headerLicenseBadge: document.getElementById('header-license-badge'),
     authorModal: document.getElementById('author-modal'),
     authorButton: document.getElementById('author-button'),
@@ -113,9 +112,6 @@ function initializeElements() {
   }
   if (!elements.licenseModal) {
     console.error('License modal not found');
-  }
-  if (!elements.licenseBadge) {
-    console.error('License badge not found');
   }
 }
 
@@ -158,13 +154,6 @@ function attachEventListeners() {
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', toggleTheme);
-  }
-  
-  // License badge
-  if (elements.licenseBadge) {
-    elements.licenseBadge.addEventListener('click', () => {
-      elements.licenseModal.classList.add('active');
-    });
   }
   
   // Header license badge
